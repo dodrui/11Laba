@@ -123,23 +123,25 @@ namespace Laba11
             ShowQueue(queueClon);
 
             //3
-            TestCollections collections = new TestCollections(10);
-            Console.WriteLine("тестовые коллекции созданы");
-            Console.WriteLine(collections.FirstElem);
-            Console.WriteLine("\n несколько раз запущенный поиск первого элемента");
+            TestCollections collections = new TestCollections(1000);
+            Console.WriteLine("Тестовые коллекции созданы");
+            Console.WriteLine("\nПоиск первого элемента:");
             Console.WriteLine(collections.FirstEl());
             Console.WriteLine(collections.FirstEl());
             Console.WriteLine(collections.FirstEl());
 
-            Console.WriteLine("\n несколько раз запущенный поиск срединного элемента");
+            Console.WriteLine("\nПоиск срединного элемента:");
             Console.WriteLine(collections.MiddleEl());
             Console.WriteLine(collections.MiddleEl());
+            Console.WriteLine(collections.MiddleEl());
 
-            Console.WriteLine("\n несколько раз запущенный поиск последнего элемента");
+            Console.WriteLine("\nПоиск последнего элемента:");
             Console.WriteLine(collections.LastEl());
             Console.WriteLine(collections.LastEl());
+            Console.WriteLine(collections.LastEl());
 
-            Console.WriteLine("\n несколько раз запущенный поиск несуществующего элемента");
+            Console.WriteLine("\nПоиск несуществующего элемента:");
+            Console.WriteLine(collections.NotExistEl());
             Console.WriteLine(collections.NotExistEl());
             Console.WriteLine(collections.NotExistEl());
         }

@@ -28,45 +28,39 @@ namespace Laba11
             jj.RandomInit();
             for (int i = 0; i < len; i++)
             {
-                try
+                Jet jet = new Jet();
+                jet.RandomInit();
+                //Добавим цифру для уникальности имени
+                jet.Model += i.ToString();
+                Console.WriteLine(jet);
+                //Добавление элементов
+                if (col1.ContainsKey(jet.GetBase))
                 {
-                    Jet jet = new Jet();
-                    jet.RandomInit();
-                    //Добавим цифру для уникальности имени
-                    jet.Model += i.ToString();
-
-                    //Добавление элементов
-                    col1.Add(jet.GetBase, jet);
-                    col2.Add(jet.GetBase.ToString(), jet);
-                    col3.Add(jet);
-                    col4.Add(jet.ToString());
-
-                    //Поиск
-                    if (i == 0)
-                    {
-                        firstElem = (Jet)jet.Clone();
-                    }
-                    else if (i == len / 2)
-                    {
-                        middleElem = (Jet)jet.Clone();
-                    }
-                    else if (i == len - 1)
-                    {
-                        lastElem = (Jet)jet.Clone();
-                    }
-
-                    Console.WriteLine(jet);
-                }
-                catch
-                {
-                    Console.WriteLine("2");
                     i--;
+                    continue;
                 }
+                col1.Add(jet.GetBase, jet);
+                col2.Add(jet.GetBase.ToString(), jet);
+                col3.Add(jet);
+                col4.Add(jet.ToString());
+
+                ////Поиск
+                if (i == 0)
+                {
+                    firstElem = (Jet)jet.Clone();
+                }
+                else if (i == len / 2)
+                {
+                    middleElem = (Jet)jet.Clone();
+                }
+                else if (i == len - 1)
+                {
+                    lastElem = (Jet)jet.Clone();
+                }
+
+                //Console.WriteLine("1");
+                
             }
-        }
-        public Jet FirstElem
-        {
-            get => firstElem;
         }
         public string FirstEl()
         {
@@ -76,19 +70,19 @@ namespace Laba11
             sw.Start();
             bool res = col1.ContainsValue(firstElem);
             sw.Stop();
-            output += $"Средний элемент в SortedDictionary<Aircraft, Jet> " + (res ? "найден" : "не найден") + $" за {sw.ElapsedTicks}\n";
+            output += $"Первый элемент в SortedDictionary<Aircraft, Jet> " + (res ? "найден" : "не найден") + $" за {sw.ElapsedTicks}\n";
             sw.Restart();
             res = col2.ContainsValue(firstElem);
             sw.Stop();
-            output += $"Средний элемент в SortedDictionary<String, Jet> " + (res ? "найден" : "не найден") + $" за {sw.ElapsedTicks}\n";
+            output += $"Первый элемент в SortedDictionary<String, Jet> " + (res ? "найден" : "не найден") + $" за {sw.ElapsedTicks}\n";
             sw.Restart();
             res = col3.Contains(firstElem);
             sw.Stop();
-            output += $"Средний элемент в HashSet<Jet> " + (res ? "найден" : "не найден") + $" за {sw.ElapsedTicks}\n";
+            output += $"Первый элемент в HashSet<Jet> " + (res ? "найден" : "не найден") + $" за {sw.ElapsedTicks}\n";
             sw.Restart();
             res = col4.Contains(firstElem.ToString());
             sw.Stop();
-            output += $"Средний элемент в HashSet<String> " + (res ? "найден" : "не найден") + $" за {sw.ElapsedTicks}\n";
+            output += $"Первый элемент в HashSet<String> " + (res ? "найден" : "не найден") + $" за {sw.ElapsedTicks}\n";
 
             return output;
         }
@@ -100,19 +94,19 @@ namespace Laba11
             sw.Start();
             bool res = col1.ContainsValue(middleElem);
             sw.Stop();
-            output += $"Последний элемент в SortedDictionary<Aircraft, Jet> " + (res ? "найден" : "не найден") + $" за {sw.ElapsedTicks}\n";
+            output += $"Средний элемент в SortedDictionary<Aircraft, Jet> " + (res ? "найден" : "не найден") + $" за {sw.ElapsedTicks}\n";
             sw.Restart();
             res = col2.ContainsValue(middleElem);
             sw.Stop();
-            output += $"Последний элемент в SortedDictionary<String, Jet> " + (res ? "найден" : "не найден") + $" за {sw.ElapsedTicks}\n";
+            output += $"Средний элемент в SortedDictionary<String, Jet> " + (res ? "найден" : "не найден") + $" за {sw.ElapsedTicks}\n";
             sw.Restart();
             res = col3.Contains(middleElem);
             sw.Stop();
-            output += $"Последний элемент в HashSet<Jet> " + (res ? "найден" : "не найден") + $" за {sw.ElapsedTicks}\n";
+            output += $"Средний элемент в HashSet<Jet> " + (res ? "найден" : "не найден") + $" за {sw.ElapsedTicks}\n";
             sw.Restart();
             res = col4.Contains(middleElem.ToString());
             sw.Stop();
-            output += $"Последний элемент в HashSet<String> " + (res ? "найден" : "не найден") + $" за {sw.ElapsedTicks}\n";
+            output += $"Средний элемент в HashSet<String> " + (res ? "найден" : "не найден") + $" за {sw.ElapsedTicks}\n";
 
             return output;
         }
@@ -124,44 +118,44 @@ namespace Laba11
             sw.Start();
             bool res = col1.ContainsValue(lastElem);
             sw.Stop();
-            output += $"Первый элемент в SortedDictionary<Aircraft, Jet> " + (res ? "найден" : "не найден") + $" за {sw.ElapsedTicks}\n";
+            output += $"Последний элемент в SortedDictionary<Aircraft, Jet> " + (res ? "найден" : "не найден") + $" за {sw.ElapsedTicks}\n";
             sw.Restart();
             res = col2.ContainsValue(lastElem);
             sw.Stop();
-            output += $"Первый элемент в SortedDictionary<String, Jet> " + (res ? "найден" : "не найден") + $" за {sw.ElapsedTicks}\n";
+            output += $"Последний элемент в SortedDictionary<String, Jet> " + (res ? "найден" : "не найден") + $" за {sw.ElapsedTicks}\n";
             sw.Restart();
             res = col3.Contains(lastElem);
             sw.Stop();
-            output += $"Первый элемент в HashSet<Jet> " + (res ? "найден" : "не найден") + $" за {sw.ElapsedTicks}\n";
+            output += $"Последний элемент в HashSet<Jet> " + (res ? "найден" : "не найден") + $" за {sw.ElapsedTicks}\n";
             sw.Restart();
             res = col4.Contains(lastElem.ToString());
             sw.Stop();
-            output += $"Первый элемент в HashSet<String> " + (res ? "найден" : "не найден") + $" за {sw.ElapsedTicks}\n";
+            output += $"Последний элемент в HashSet<String> " + (res ? "найден" : "не найден") + $" за {sw.ElapsedTicks}\n";
 
             return output;
         }
         public string NotExistEl()
         {
-            Jet jet = new Jet("None", -1, "None", 5, 0,"None");
+            Jet jet = new Jet("None", 2000, "None", 5, 0, "None");
             Stopwatch sw = new Stopwatch();
             string output = "";
 
             sw.Start();
             bool res = col1.ContainsValue(jet);
             sw.Stop();
-            output += $"Первый элемент в SortedDictionary<Aircraft, Jet> " + (res ? "найден" : "не найден") + $" за {sw.ElapsedTicks}\n";
+            output += $"Не существующий элемент в SortedDictionary<Aircraft, Jet> " + (res ? "найден" : "не найден") + $" за {sw.ElapsedTicks}\n";
             sw.Restart();
             res = col2.ContainsValue(jet);
             sw.Stop();
-            output += $"Первый элемент в SortedDictionary<String, Jet> " + (res ? "найден" : "не найден") + $" за {sw.ElapsedTicks}\n";
+            output += $"Не существующий элемент в SortedDictionary<String, Jet> " + (res ? "найден" : "не найден") + $" за {sw.ElapsedTicks}\n";
             sw.Restart();
             res = col3.Contains(jet);
             sw.Stop();
-            output += $"Первый элемент в HashSet<Jet> " + (res ? "найден" : "не найден") + $" за {sw.ElapsedTicks}\n";
+            output += $"Не существующий элемент в HashSet<Jet> " + (res ? "найден" : "не найден") + $" за {sw.ElapsedTicks}\n";
             sw.Restart();
             res = col4.Contains(jet.ToString());
             sw.Stop();
-            output += $"Первый элемент в HashSet<String> " + (res ? "найден" : "не найден") + $" за {sw.ElapsedTicks}\n";
+            output += $"Не существующий элемент в HashSet<String> " + (res ? "найден" : "не найден") + $" за {sw.ElapsedTicks}\n";
 
             return output;
         }

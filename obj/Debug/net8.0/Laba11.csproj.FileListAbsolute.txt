@@ -16,3 +16,4 @@ C:\Users\Prost\source\repos\Laba11\Laba11\obj\Debug\net8.0\Laba11.pdb
 C:\Users\Prost\source\repos\Laba11\Laba11\obj\Debug\net8.0\Laba11.genruntimeconfig.cache
 C:\Users\Prost\source\repos\Laba11\Laba11\obj\Debug\net8.0\ref\Laba11.dll
 C:\Users\Prost\source\repos\Laba11\Laba11\obj\Debug\net8.0\Laba11.csproj.Up2Date
+C:\Users\Prost\source\repos\Laba11\Laba11\obj\Debug\net8.0\Laba11.sourcelink.json
